@@ -22,10 +22,6 @@ Environment:
 #endif
 
 
-NTSTATUS
-USB2514HubDriverCreateDevice(
-    _Inout_ PWDFDEVICE_INIT DeviceInit
-    )
 /*++
 
 Routine Description:
@@ -43,6 +39,10 @@ Return Value:
     NTSTATUS
 
 --*/
+NTSTATUS
+USB2514HubDriverCreateDevice(
+    _Inout_ PWDFDEVICE_INIT DeviceInit
+    )
 {
     WDF_OBJECT_ATTRIBUTES   deviceAttributes;
     PDEVICE_CONTEXT deviceContext;
