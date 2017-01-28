@@ -1,6 +1,7 @@
 ﻿{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
+    "SQLite.WinRT.UAP": "2016.11.30.2",
     "Zen.IoT.Devices": "1.0.7"
   },
   "frameworks": {
