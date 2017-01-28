@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zen.Iot.Devices.Csb502Ssd", "src\Zen.Iot.Devices.Csb502Ssd\Zen.Iot.Devices.Csb502Ssd.csproj", "{C5AF42C5-D16A-4945-B505-B9E768E2A901}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "USB2514HubDriver", "src\USB2514HubDriver\USB2514HubDriver.vcxproj", "{0144EEE3-9C68-4FD3-97F4-7DF1B4632652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zen.Aero.Media.Client", "Zen.Aero.Media.Client\Zen.Aero.Media.Client.csproj", "{52B6D7C4-C747-4357-905E-551CD57E3BBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,28 @@ Global
 		{0144EEE3-9C68-4FD3-97F4-7DF1B4632652}.Release|x86.ActiveCfg = Release|Win32
 		{0144EEE3-9C68-4FD3-97F4-7DF1B4632652}.Release|x86.Build.0 = Release|Win32
 		{0144EEE3-9C68-4FD3-97F4-7DF1B4632652}.Release|x86.Deploy.0 = Release|Win32
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|ARM.ActiveCfg = Debug|ARM
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|ARM.Build.0 = Debug|ARM
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|ARM.Deploy.0 = Debug|ARM
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|ARM64.ActiveCfg = Debug|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|x64.ActiveCfg = Debug|x64
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|x64.Build.0 = Debug|x64
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|x64.Deploy.0 = Debug|x64
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|x86.ActiveCfg = Debug|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|x86.Build.0 = Debug|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Debug|x86.Deploy.0 = Debug|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|Any CPU.ActiveCfg = Release|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|ARM.ActiveCfg = Release|ARM
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|ARM.Build.0 = Release|ARM
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|ARM.Deploy.0 = Release|ARM
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|ARM64.ActiveCfg = Release|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|x64.ActiveCfg = Release|x64
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|x64.Build.0 = Release|x64
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|x64.Deploy.0 = Release|x64
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|x86.ActiveCfg = Release|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|x86.Build.0 = Release|x86
+		{52B6D7C4-C747-4357-905E-551CD57E3BBB}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
