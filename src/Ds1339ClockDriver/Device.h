@@ -24,6 +24,7 @@ EXTERN_C_START
 //
 typedef struct _DEVICE_CONTEXT
 {
+    WDFUSBDEVICE UsbDevice;
     ULONG PrivateDeviceData;  // just a placeholder
 
 } DEVICE_CONTEXT, *PDEVICE_CONTEXT;
@@ -36,11 +37,17 @@ typedef struct _DEVICE_CONTEXT
 WDF_DECLARE_CONTEXT_TYPE_WITH_NAME(DEVICE_CONTEXT, DeviceGetContext)
 
 //
-// Function to initialize the device and its callbacks
+// Function to initialize the device's queues and callbacks
 //
 NTSTATUS
-USB2514HubDriverCreateDevice(
+Ds1339ClockDriverCreateDevice(
     _Inout_ PWDFDEVICE_INIT DeviceInit
     );
+
+//
+// Function to select the device's USB configuration and get a WDFUSBDEVICE
+// handle
+//
+EVT_WDF_DEVICE_PREPARE_HARDWARE Ds1339ClockDriverEvtDevicePrepareHardware;
 
 EXTERN_C_END

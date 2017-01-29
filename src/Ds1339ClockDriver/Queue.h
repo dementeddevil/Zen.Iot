@@ -29,14 +29,14 @@ typedef struct _QUEUE_CONTEXT {
 WDF_DECLARE_CONTEXT_TYPE_WITH_NAME(QUEUE_CONTEXT, QueueGetContext)
 
 NTSTATUS
-USB2514HubDriverQueueInitialize(
-    _In_ WDFDEVICE hDevice
+Ds1339ClockDriverQueueInitialize(
+    _In_ WDFDEVICE Device
     );
 
 //
 // Events from the IoQueue object
 //
-EVT_WDF_IO_QUEUE_IO_DEVICE_CONTROL USB2514HubDriverEvtIoDeviceControl;
-EVT_WDF_IO_QUEUE_IO_STOP USB2514HubDriverEvtIoStop;
+EVT_WDF_IO_QUEUE_IO_DEVICE_CONTROL Ds1339ClockDriverEvtIoDeviceControl;
+EVT_WDF_IO_QUEUE_IO_STOP Ds1339ClockDriverEvtIoStop;
 
 EXTERN_C_END

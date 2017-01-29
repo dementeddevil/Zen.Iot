@@ -18,6 +18,9 @@ Environment:
 
 #include <ntddk.h>
 #include <wdf.h>
+#include <usb.h>
+#include <usbdlib.h>
+#include <wdfusb.h>
 
 #include "device.h"
 #include "queue.h"
@@ -30,7 +33,7 @@ EXTERN_C_START
 //
 
 DRIVER_INITIALIZE DriverEntry;
-EVT_WDF_DRIVER_DEVICE_ADD USB2514HubDriverEvtDeviceAdd;
-EVT_WDF_OBJECT_CONTEXT_CLEANUP USB2514HubDriverEvtDriverContextCleanup;
+EVT_WDF_DRIVER_DEVICE_ADD Ds1339ClockDriverEvtDeviceAdd;
+EVT_WDF_OBJECT_CONTEXT_CLEANUP Ds1339ClockDriverEvtDriverContextCleanup;
 
 EXTERN_C_END

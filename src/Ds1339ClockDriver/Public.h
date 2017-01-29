@@ -19,6 +19,6 @@ Environment:
 // Define an Interface Guid so that app can find the device and talk to it.
 //
 
-DEFINE_GUID (GUID_DEVINTERFACE_USB2514HubDriver,
-    0x9aa33dbf,0x9851,0x4bc2,0x91,0xba,0x0b,0xd8,0x6a,0x12,0x0c,0x90);
-// {9aa33dbf-9851-4bc2-91ba-0bd86a120c90}
+DEFINE_GUID (GUID_DEVINTERFACE_Ds1339ClockDriver,
+    0x97615868,0x7b86,0x447d,0x99,0x83,0x0a,0x32,0x38,0xae,0xae,0x61);
+// {97615868-7b86-447d-9983-0a3238aeae61}

@@ -1,0 +1,107 @@
+;
+; Ds1339ClockDriver.inf
+;
+; ACPI\PNP0B02
+; Our service needs to implement the ACPI responses for the above device
+; and then Windows will call us for all RTC/system clock functions and
+; our Raspberry Pi will suddenly gain a battery backed clock (wahoo!)
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=USBDevice
+ClassGuid={88BAE032-5A81-49f0-BC3D-A4FF138216D6}
+Provider=%ManufacturerName%
+CatalogFile=Ds1339ClockDriver.cat
+DriverVer=
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Ds1339ClockDriver.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%Ds1339ClockDriver.DeviceDesc%=Ds1339ClockDriver_Device, USB\VID_vvvv&PID_pppp
+
+[Ds1339ClockDriver_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+Ds1339ClockDriver.sys
+
+[Ds1339ClockDriver_Device.NT.HW]
+AddReg=Ds1339ClockDriver_AddReg
+
+[Ds1339ClockDriver_AddReg]
+; By default, USBDevice class uses iProduct descriptor to name the device in
+; Device Manager on Windows 8 and higher.
+; Uncomment for this device to use %DeviceName% on Windows 8 and higher:
+;HKR,,FriendlyName,,%Ds1339ClockDriver.DeviceDesc%
+
+;-------------- Class definition
+
+[ClassInstall32]
+AddReg = ClassInstall_AddReg
+
+[ClassInstall_AddReg]
+HKR,,,,%ClassName%
+HKR,,NoInstallClass,,1
+HKR,,IconPath,%REG_MULTI_SZ%,"%%systemroot%%\system32\setupapi.dll,-20"
+HKR,,LowerLogoVersion,,5.2
+
+;-------------- Service installation
+[Ds1339ClockDriver_Device.NT.Services]
+AddService = Ds1339ClockDriver,%SPSVCINST_ASSOCSERVICE%, Ds1339ClockDriver_Service_Inst
+
+; -------------- Ds1339ClockDriver driver install sections
+[Ds1339ClockDriver_Service_Inst]
+DisplayName    = %Ds1339ClockDriver.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\Ds1339ClockDriver.sys
+
+;
+;--- Ds1339ClockDriver_Device Coinstaller installation ------
+;
+
+[DestinationDirs]
+Ds1339ClockDriver_Device_CoInstaller_CopyFiles = 11
+
+[Ds1339ClockDriver_Device.NT.CoInstallers]
+AddReg=Ds1339ClockDriver_Device_CoInstaller_AddReg
+CopyFiles=Ds1339ClockDriver_Device_CoInstaller_CopyFiles
+
+[Ds1339ClockDriver_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[Ds1339ClockDriver_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[SourceDisksFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+[Ds1339ClockDriver_Device.NT.Wdf]
+KmdfService =  Ds1339ClockDriver, Ds1339ClockDriver_wdfsect
+[Ds1339ClockDriver_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Universal Serial Bus devices"
+DiskName = "Ds1339ClockDriver Installation Disk"
+Ds1339ClockDriver.DeviceDesc = "Ds1339ClockDriver Device"
+Ds1339ClockDriver.SVCDESC = "Ds1339ClockDriver Service"
+REG_MULTI_SZ = 0x00010000

@@ -19,8 +19,8 @@ Environment:
 
 #ifdef ALLOC_PRAGMA
 #pragma alloc_text (INIT, DriverEntry)
-#pragma alloc_text (PAGE, USB2514HubDriverEvtDeviceAdd)
-#pragma alloc_text (PAGE, USB2514HubDriverEvtDriverContextCleanup)
+#pragma alloc_text (PAGE, Ds1339ClockDriverEvtDeviceAdd)
+#pragma alloc_text (PAGE, Ds1339ClockDriverEvtDriverContextCleanup)
 #endif
 
 
@@ -71,10 +71,10 @@ Return Value:
     // the framework driver object is deleted during driver unload.
     //
     WDF_OBJECT_ATTRIBUTES_INIT(&attributes);
-    attributes.EvtCleanupCallback = USB2514HubDriverEvtDriverContextCleanup;
+    attributes.EvtCleanupCallback = Ds1339ClockDriverEvtDriverContextCleanup;
 
     WDF_DRIVER_CONFIG_INIT(&config,
-                           USB2514HubDriverEvtDeviceAdd
+                           Ds1339ClockDriverEvtDeviceAdd
                            );
 
     status = WdfDriverCreate(DriverObject,
@@ -96,7 +96,7 @@ Return Value:
 }
 
 NTSTATUS
-USB2514HubDriverEvtDeviceAdd(
+Ds1339ClockDriverEvtDeviceAdd(
     _In_    WDFDRIVER       Driver,
     _Inout_ PWDFDEVICE_INIT DeviceInit
     )
@@ -127,7 +127,7 @@ Return Value:
 
     TraceEvents(TRACE_LEVEL_INFORMATION, TRACE_DRIVER, "%!FUNC! Entry");
 
-    status = USB2514HubDriverCreateDevice(DeviceInit);
+    status = Ds1339ClockDriverCreateDevice(DeviceInit);
 
     TraceEvents(TRACE_LEVEL_INFORMATION, TRACE_DRIVER, "%!FUNC! Exit");
 
@@ -135,7 +135,7 @@ Return Value:
 }
 
 VOID
-USB2514HubDriverEvtDriverContextCleanup(
+Ds1339ClockDriverEvtDriverContextCleanup(
     _In_ WDFOBJECT DriverObject
     )
 /*++

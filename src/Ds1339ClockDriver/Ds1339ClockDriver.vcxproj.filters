@@ -22,7 +22,7 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="USB2514HubDriver.inf">
+    <Inf Include="Ds1339ClockDriver.inf">
       <Filter>Driver Files</Filter>
     </Inf>
   </ItemGroup>
