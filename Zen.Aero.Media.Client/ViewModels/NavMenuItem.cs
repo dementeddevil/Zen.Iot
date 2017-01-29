@@ -2,24 +2,27 @@
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using GalaSoft.MvvmLight;
 
 namespace Zen.Aero.Media.Client
 {
     /// <summary>
     /// Data to represent an item in the nav menu.
     /// </summary>
-    public class NavMenuItem : INotifyPropertyChanged
+    public class NavMenuItem : ViewModelBase
     {
         private bool _isSelected;
         private Visibility _selectedVis = Visibility.Collapsed;
-
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
         public string Label { get; set; }
 
         public Symbol Symbol { get; set; }
 
-        public char SymbolAsChar => (char)this.Symbol;
+        public char SymbolAsChar => (char)Symbol;
+
+        public Type DestPage { get; set; }
+
+        public object Arguments { get; set; }
 
         public bool IsSelected
         {
@@ -28,7 +31,7 @@ namespace Zen.Aero.Media.Client
             {
                 _isSelected = value;
                 SelectedVis = value ? Visibility.Visible : Visibility.Collapsed;
-                this.OnPropertyChanged("IsSelected");
+                RaisePropertyChanged();
             }
         }
 
@@ -38,18 +41,8 @@ namespace Zen.Aero.Media.Client
             set
             {
                 _selectedVis = value;
-                this.OnPropertyChanged("SelectedVis");
+                RaisePropertyChanged();
             }
-        }
-
-        public Type DestPage { get; set; }
-
-        public object Arguments { get; set; }
-
-        public void OnPropertyChanged(string propertyName)
-        {
-            // Raise the PropertyChanged event, passing the name of the property whose value has changed.
-            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
