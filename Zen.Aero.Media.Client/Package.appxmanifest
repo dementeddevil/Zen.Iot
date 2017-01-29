@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="6db76c9b-aca1-4fa0-a2a0-fb6718e4aff2" Publisher="CN=&quot;CN=Zen Aero Media Client,OU=Application Deployment,O=Zen Design Software,L=London,C=GB&quot;" Version="1.0.0.0" />
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" 
+         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+         IgnorableNamespaces="uap mp">
+  <Identity Name="6db76c9b-aca1-4fa0-a2a0-fb6718e4aff2" Publisher="CN=Zen Design Software" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="6db76c9b-aca1-4fa0-a2a0-fb6718e4aff2" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Zen Aero Media</DisplayName>

@@ -24,7 +24,7 @@ namespace Zen.Aero.Media.Client
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }
